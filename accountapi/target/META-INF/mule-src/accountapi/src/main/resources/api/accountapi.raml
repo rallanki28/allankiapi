@@ -1,0 +1,84 @@
+#%RAML 1.0
+title: Sample API
+baseUri: http://localhost:8081
+
+types:
+ Account: !include /exchange_modules/433d214e-6076-4a9b-b96d-f46cd6a7eb6a/accounttype/1.0.0/datatypes/Account.raml
+ AccountResponse: !include datatypes/AccountResponse.raml
+ AccountDetailsResponse: !include  datatypes/AccountDetailsReponse.raml
+ IndigoFlight: !include datatypes/IndigoFlight.raml
+ AirIndiaFlight: !include datatypes/AirIndiaFlight.raml
+
+documentation:
+  - !include documentation/accountDoc.raml
+
+securitySchemes: 
+  customTokenSecurity: !include securitySchemes/customTokenSecurity.raml
+
+securedBy: customTokenSecurity
+
+uses: 
+  Library: libraries/Library.raml
+ 
+/accounts:
+  post:
+    description: Add a new customer
+    is:
+      - Library.clientInfo
+        
+    body:
+      application/json:
+       type: Account
+       example: !include examples/AccountExample.raml
+    responses:
+       200:
+         body:
+            application/json:
+               type: AccountResponse
+               example: !include examples/AccountResponseExample.raml
+  /{account_id}:
+    get:
+      is:
+       - Library.clientInfo
+      description: Retrieve a account with a specific account ID
+      responses:
+        200:
+          body:
+            application/json:
+              type: AccountDetailsResponse
+              example: !include examples/AccountDetailsReponseExample.raml
+    patch:
+      description: Update a account by account ID
+      is:
+        - Library.clientInfo
+      body:
+        application/json:
+            type: Account
+            example: !include examples/AccountExample.raml
+      responses:
+         200:
+           body:
+              application/json:
+                 type: AccountResponse
+                 example: !include examples/AccountUpdateResponseExample.raml
+    delete:
+      description: Delete a account by account ID
+      is:
+        - Library.clientInfo
+      responses:
+         200:
+           body:
+              application/json:
+                 type: AccountResponse
+                 example: !include examples/AccountDeleteResponeExample.raml
+                 
+/indigoFlights:
+  get:
+  type: Library.flightCollection
+    
+            
+/airIndiaFlights:
+  get:
+  type: Library.flightCollection
+    
+ 

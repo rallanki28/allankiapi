@@ -1,0 +1,42 @@
+{
+  "configs": [
+    "accountapi.xml"
+  ],
+  "secureProperties": [],
+  "redeploymentEnabled": true,
+  "name": "com.mycompany:accountapi:1.0.0-SNAPSHOT",
+  "minMuleVersion": "4.3.0",
+  "requiredProduct": "MULE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "accountapi.xml",
+        "api/accountapi.raml",
+        "api/datatypes/AccountDetailsReponse.raml",
+        "api/datatypes/AccountResponse.raml",
+        "api/datatypes/AirIndiaFlight.raml",
+        "api/datatypes/IndigoFlight.raml",
+        "api/documentation/accountDoc.raml",
+        "api/examples/AccountDeleteResponeExample.raml",
+        "api/examples/AccountDetailsReponseExample.raml",
+        "api/examples/AccountExample.raml",
+        "api/examples/AccountResponseExample.raml",
+        "api/examples/AccountUpdateResponseExample.raml",
+        "api/examples/AirIndiaFlightsExample.raml",
+        "api/examples/IndigoFlightsExample.raml",
+        "api/exchange_modules/433d214e-6076-4a9b-b96d-f46cd6a7eb6a/accounttype/1.0.0/datatypes/Account.raml",
+        "api/libraries/Library.raml",
+        "api/resourceTypes/FlightsCollection.raml",
+        "api/securitySchemes/customTokenSecurity.raml",
+        "api/traits/clientInfo.raml",
+        "log4j2.xml"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}

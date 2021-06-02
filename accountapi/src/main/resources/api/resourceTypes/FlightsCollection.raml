@@ -1,0 +1,16 @@
+#%RAML 1.0 ResourceType
+get?:
+  description: Retrieve list of <<resourcePathName>>
+  queryParameters:
+      source:
+        example: BLR
+      destination:
+        example: DEL
+      doj:
+        example: 30-Jan-2021
+  responses: 
+    200:
+      body:
+        application/json:
+         type: <<resourcePathName | !singularize | !uppercamelcase>>
+         

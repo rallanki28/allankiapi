@@ -1,0 +1,15 @@
+#%RAML 1.0 DataType
+type: object
+properties: 
+  ID?: number
+  airline: string
+  flightCode: string
+  fromAirportCode: string
+  toAirportCode: string
+  departureDate: string
+  emptySeats: number
+  totalSeats?: number
+  price: number
+  planeType?: string
+example: !include ../examples/AirIndiaFlightsExample.raml
+  
